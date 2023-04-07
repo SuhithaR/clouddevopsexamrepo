@@ -1,0 +1,20 @@
+pipeline {
+    AWS 
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker build -t my-app .'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker tag my-app:latest 238116871748.dkr.ecr.us-east-1.amazonaws.com/my-app:latest'
+                withAWS(region:'us-east-1', credentials:'1234@Lokesh') {
+                    sh '$(aws ecr get-login --no-include-email --region us-east-1)'
+                    sh 'docker push 238116871748.dkr.ecr.us-east-1.amazonaws.com/my-app:latest'
+                    sh 'eb deploy'
+                }
+            }
+        }
+    }
+}
