@@ -1,8 +1,11 @@
 # clouddevopsexamrepo
 1. Setup GitHub Repository
-  Create a GitHub repository for your application code.
-  Commit your application code to the repository.
-2.Setup Jenkins
+  Create a GitHub repository for your application code.  
+  
+  Commit your application code to the repository.  
+  
+2.Setup Jenkins  
+
   Install Jenkins on an EC2 instance in AWS.
   Install the necessary plugins for GitHub and Docker.
   Create a new Jenkins job for your application.
